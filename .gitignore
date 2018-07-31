@@ -1,3 +1,7 @@
 .D*
 *.swp
 ._*
+a.out
+test
+debug*
+*.o
