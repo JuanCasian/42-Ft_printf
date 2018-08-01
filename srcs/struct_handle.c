@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   struct_handle.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/31 15:42:24 by jcasian           #+#    #+#             */
-/*   Updated: 2018/07/31 21:03:58 by jcasian          ###   ########.fr       */
+/*   Created: 2018/07/31 18:32:25 by jcasian           #+#    #+#             */
+/*   Updated: 2018/07/31 18:50:27 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(void)
+void	reinit_struct(t_info *info)
 {
-	ft_printf("%-5.ls");
-	return (0);
+	int i;
+
+	i = -1;
+	while (++i < NFLAGS)
+		info->flags[i] = -1;
+	i = -1;
+	while (++i < NWIDTHS)
+		info->widths[i] = -1;
+	i = -1;
+	while (++i < NPRECIS)
+		info->precis[i] = -1;
+	i = -1;
+	while (++i < NLENGTHS)
+		info->lengths[i] = -1;
+	i = -1;
+	while (++i < NSPECIS)
+		info->specis[i] = -1;
 }

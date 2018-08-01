@@ -6,13 +6,47 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:39:27 by jcasian           #+#    #+#             */
-/*   Updated: 2018/07/31 15:47:07 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/07/31 19:57:05 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printf(void)
+static void	check_and_print(t_info *info)
 {
-	ft_putendl("Hello");
+	(info->str[0])++;
+	check_flags(info);
+	check_widths(info);
+	check_precis(info);
+	check_lengths(info);
+	check_specis(info);
+	print_var(info);
+}
+
+int			ft_printf(char *str, ...)
+{
+	t_info	*info;
+	va_list	args;
+	int		count;
+
+	if (!(info = (t_info*)malloc(sizeof(t_info))))
+		exit (-1);
+	va_start(args, str);
+	info->args = &args;
+	info->str = &str;
+	info->count = 0;
+	reinit_struct(info);
+	while (info->str[0][0])
+		if (info->str[0][0] != '%')
+		{
+			ft_putchar(info->str[0][0]);
+			(info->str[0])++;
+			info->count++;
+		}
+		else
+			check_and_print(info);
+	count = info->count;
+	free(info);
+	va_end(args);
+	return (count);
 }
