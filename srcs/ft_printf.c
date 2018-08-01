@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:39:27 by jcasian           #+#    #+#             */
-/*   Updated: 2018/07/31 19:57:05 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/01 13:37:01 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	check_and_print(t_info *info)
 	check_lengths(info);
 	check_specis(info);
 	print_var(info);
+	reinit_struct(info);
 }
 
 int			ft_printf(char *str, ...)
@@ -29,8 +30,8 @@ int			ft_printf(char *str, ...)
 	va_list	args;
 	int		count;
 
-	if (!(info = (t_info*)malloc(sizeof(t_info))))
-		exit (-1);
+	if (!(info = (t_info*)malloc(sizeof(t_info))) || !(str))
+		put_error();
 	va_start(args, str);
 	info->args = &args;
 	info->str = &str;

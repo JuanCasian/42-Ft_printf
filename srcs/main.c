@@ -6,14 +6,15 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:42:24 by jcasian           #+#    #+#             */
-/*   Updated: 2018/07/31 21:03:58 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/01 16:25:35 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int		main(void)
 {
-	ft_printf("%-5.ls");
+	printf("Hello%#####%");
 	return (0);
 }

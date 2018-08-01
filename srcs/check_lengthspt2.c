@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_handle.c                                    :+:      :+:    :+:   */
+/*   check_lengthspt2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/31 18:32:25 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/01 15:18:21 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/01 15:41:30 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/01 15:46:57 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	reinit_struct(t_info *info)
+void	check_lengthspt2(t_info *info)
 {
-	int i;
-
-	i = -1;
-	while (++i < NFLAGS)
-		info->flags[i] = -1;
-	info->width= -1;
-	info->preci= -1;
-	i = -1;
-	while (++i < NLENGTHS)
-		info->lengths[i] = -1;
-	info->speci = '~';
-}
-
-void	reinit_lengths(t_info *info)
-{
-	int	i;
-
-	i = -1;
-	while (++i < NLENGTHS)
-		info->lengths[i] = -1;
+	if (info->str[0][0] == 'l')
+	{
+		if (info->str[0][1] == 'l')
+		{
+			reinit_lengths(info);
+			info->lengths[Lll] = 1;
+			(info->str[0])++;
+		}
+		else
+		{
+			reinit_lengths(info);
+			info->lengths[Ll] = 1;
+		}
+	}
+	else if (info->str[0][0] == 'z')
+	{
+		reinit_lengths(info);
+		info->lengths[Lz] = 1;
+	}
 }

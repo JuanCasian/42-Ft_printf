@@ -6,7 +6,7 @@
 #    By: jcasian <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/31 15:26:05 by jcasian           #+#    #+#              #
-#    Updated: 2018/07/31 21:04:39 by jcasian          ###   ########.fr        #
+#    Updated: 2018/08/01 15:43:52 by jcasian          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = libftprintf.a
 SRCSDIR = srcs
 LIBSDIR = libs
 SRCS = $(addprefix $(SRCSDIR)/,\
-	   ft_printf.c struct_handle.c checks.c print_var.c is_tests.c)
+	   ft_printf.c struct_handle.c checks.c print_var.c is_tests.c \
+	   put_error.c check_lengthspt2.c)
 
 INCLUDES = 	includes
 OBJECTS = $(patsubst %.c, %.o, $(SRCS))

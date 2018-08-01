@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:21:51 by jcasian           #+#    #+#             */
-/*   Updated: 2018/07/31 20:23:52 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/01 15:48:16 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,16 @@
 # include <stdarg.h>
 
 # define NFLAGS 5
-# define NWIDTHS 2
-# define NPRECIS 2
-# define NLENGTHS 2
+# define NLENGTHS 6
 # define NSPECIS 14
 
 typedef struct	s_info
 {
 	int		flags[NFLAGS];
-	int		widths[NWIDTHS];
-	int		precis[NPRECIS];
+	int		width;
+	int		preci;
 	int		lengths[NLENGTHS];
-	int		specis[NSPECIS];
+	char	speci;
 	va_list	*args;
 	char	**str;
 	int		count;
@@ -43,18 +41,6 @@ enum			e_flags
 	Fzero
 };
 
-enum			e_widths
-{
-	Wnumber,
-	Waster
-};
-
-enum			e_precis
-{
-	Pnumber,
-	Paster
-};
-
 enum			e_lengths
 {
 	Lhh,
@@ -63,25 +49,6 @@ enum			e_lengths
 	Lll,
 	Lj,
 	Lz
-};
-
-enum			e_specis
-{
-	Sper,
-	Ss,
-	SS,
-	Sp,
-	Sd,
-	SD,
-	Si,
-	So,
-	SO,
-	Su,
-	SU,
-	Sx,
-	SX,
-	Sc,
-	SC
 };
 
 int				ft_printf(char *str, ...);
@@ -97,5 +64,8 @@ int				is_width(char c);
 int				is_preci(char c);
 int				is_length(char c);
 int				is_speci(char c);
+void			put_error(void);
+void			reinit_lengths(t_info *info);
+void			check_lengthspt2(t_info *info);
 
 #endif
