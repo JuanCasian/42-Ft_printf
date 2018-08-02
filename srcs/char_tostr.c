@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_handle.c                                    :+:      :+:    :+:   */
+/*   char_tostr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/31 18:32:25 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 13:06:57 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/02 15:51:27 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/02 16:27:01 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	reinit_struct(t_info *info)
+char	*char_tostr(int c)
 {
-	int i;
+	char *res;
+	char t;
 
-	i = -1;
-	while (++i < NFLAGS)
-		info->flags[i] = -1;
-	info->width= -1;
-	info->preci= -1;
-	i = -1;
-	while (++i < NLENGTHS)
-		info->lengths[i] = -1;
-	info->speci = '~';
-	info->leftpadded = -1;
-	info->zeropadded = -1;
+	t = (char)c;
+	res = strnew(2);
+	res[0] = t;
+	return (res);
 }
 
-void	reinit_lengths(t_info *info)
-{
-	int	i;
 
-	i = -1;
-	while (++i < NLENGTHS)
-		info->lengths[i] = -1;
-}
