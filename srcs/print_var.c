@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 19:23:59 by jcasian           #+#    #+#             */
-/*   Updated: 2018/07/31 19:27:34 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/01 21:02:51 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	print_var(t_info *info)
 {
-	info->count = 0;
-	ft_putendl("printed the var");
+
+	ft_putstr(info->res);
+	free(info->res);
 }

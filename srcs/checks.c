@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 19:20:39 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/01 16:22:20 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/01 19:26:28 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,13 @@ void	check_precis(t_info *info)
 			info->preci= va_arg(info->args[0], int);
 			(info->str[0])++;
 		}
-		else
+		else if (info->str[0][0] != '-')
+		{
 			info->preci= 0;
+			(info->str[0])++;
+		}
+		else
+			(info->str[0])++;
 	}
 }
 

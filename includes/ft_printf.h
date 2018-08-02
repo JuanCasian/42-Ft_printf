@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:21:51 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/01 15:48:16 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/01 19:27:09 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_info
 	va_list	*args;
 	char	**str;
 	int		count;
+	char	*res;
 }				t_info;
 
 enum			e_flags
