@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_tostr.c                                       :+:      :+:    :+:   */
+/*   address_tostr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/02 15:51:27 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 21:02:52 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/02 18:53:28 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/02 18:56:35 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*char_tostr(int c)
+char	*address_tostr(unsigned long long int address)
 {
 	char *res;
-
-	res = ft_strnew(2);
-	res[0] = c;
+	
+	res = ft_utoabase(address, 16);
+	res = str_addprev("0x", res);
 	return (res);
 }
-
-

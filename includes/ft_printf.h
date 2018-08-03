@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:21:51 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 15:45:16 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/02 21:01:36 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
+# include <wchar.h>
 # include <stdarg.h>
 
 # define NFLAGS 5
@@ -71,7 +72,17 @@ void			put_error(void);
 void			reinit_lengths(t_info *info);
 void			check_lengthspt2(t_info *info);
 char			*ft_itoalong(long long int n);
-char			*ft_utoabase(unsigned long long int n, 
+char			*ft_utoabase(unsigned long long int n,
 		unsigned long long int base);
+char			*address_tostr(unsigned long long int address);
+char			*str_addprev(char *prefix, char *str);
+char			*str_addsuf(char *suffix, char *str);
+void			handle_gaddress(t_info *info);
+void			ft_strtoupper(char **str);
+void			handle_gsigneds(t_info *info);
+void			handle_gunsigneds(t_info *info);
+void			handle_gchars(t_info *info);
+void			handle_gstrs(t_info *info);
+char			*char_tostr(int c);
 
 #endif

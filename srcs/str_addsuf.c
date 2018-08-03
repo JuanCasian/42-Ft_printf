@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_tostr.c                                       :+:      :+:    :+:   */
+/*   str_addsuf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/02 15:51:27 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 21:02:52 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/02 19:10:15 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/02 19:16:52 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*char_tostr(int c)
+char	*str_addsuf(char *suffix, char *str)
 {
-	char *res;
+	char	*res;
+	int		i;
+	int		j;
 
-	res = ft_strnew(2);
-	res[0] = c;
+	i = ft_strlen(suffix) + ft_strlen(str);
+	if (!(res = ft_strnew(i)))
+		put_error();
+	j = -1;
+	i = 0;
+	while (str[++j])
+		res[j] = str[j];
+	while (suffix[i])
+	{
+		res[j] = suffix[i];
+	}
+	free(str);
 	return (res);
 }
-
-

@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_tostr.c                                       :+:      :+:    :+:   */
+/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/02 15:51:27 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 21:02:52 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/02 20:14:21 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/02 20:15:30 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*char_tostr(int c)
+void	ft_strtoupper(char **str)
 {
-	char *res;
+	int i;
 
-	res = ft_strnew(2);
-	res[0] = c;
-	return (res);
+	i = -1;
+	while (str[0][++i])
+		str[0][i] = ft_toupper(str[0][i]);
 }
-
-

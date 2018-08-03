@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:42:24 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 15:46:13 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/02 21:07:28 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,23 @@
 
 int		main(void)
 {
-	unsigned long long int r;
-	char *res;
+	char *str;
+	int i;
+	int j;
+	int c;
 
-	r = 100000000000;
-	res = ft_utoabase(r, 15);
-	printf("%s", res);
+	c = L'и';
+	str = "Hello World";
+	printf("-----Original Result------\n");
+
+	i = printf("%lc\n", c);
+
+	printf("Chars printed %d\n", i);
+	printf("-------YOUR  Result-------\n");
+
+	j = ft_printf("%lc\n", c);
+
+	printf("Chars printed %d\n", j);
+//	while (1);
 	return (0);
 }
