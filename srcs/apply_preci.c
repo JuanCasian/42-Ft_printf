@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 15:05:18 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/03 18:15:19 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 21:06:23 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	apply_precipt2(t_info *info)
 	flag = 0;
 	if ((info->speci == 'U' || info->speci == 'u' || info->speci == 'o' ||
 			info->speci == 'x' || info->speci == 'X' || info->speci == 'O' ||
-			info->speci == 'b' ) && (len = ft_strlen(info->res)))
+			info->speci == 'b') && (len = ft_strlen(info->res)))
 	{
 		while (len++ < info->preci)
 			info->res = str_addprev("0", info->res);
@@ -50,7 +50,8 @@ void		apply_preci(t_info *info)
 	i = -1;
 	if (info->preci >= 0)
 	{
-		if ((info->lengths[Ll] == 1 && info->speci == 's') || info->speci == 'S')
+		if ((info->lengths[Ll] == 1 && info->speci == 's') ||
+				info->speci == 'S')
 		{
 			while (len < info->preci && info->wres[++i])
 				len += wchar_utf8len(info->wres[i]);
@@ -65,7 +66,6 @@ void		apply_preci(t_info *info)
 			if (info->res[i])
 				info->res[i] = '\0';
 		}
-		else
-			apply_precipt2(info);
+		apply_precipt2(info);
 	}
 }

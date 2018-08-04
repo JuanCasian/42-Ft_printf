@@ -61,11 +61,11 @@ void	check_precis(t_info *info)
 		}
 		else if (info->str[0][0] == '*')
 		{
-			info->preci= va_arg(info->args[0], int);
+			info->preci = va_arg(info->args[0], int);
 			(info->str[0])++;
 		}
 		else if (info->str[0][0] != '-')
-			info->preci= 0;
+			info->preci = 0;
 		else
 			(info->str[0])++;
 	}

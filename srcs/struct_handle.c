@@ -19,8 +19,8 @@ void	reinit_struct(t_info *info)
 	i = -1;
 	while (++i < NFLAGS)
 		info->flags[i] = -1;
-	info->width= -1;
-	info->preci= -1;
+	info->width = -1;
+	info->preci = -1;
 	i = -1;
 	while (++i < NLENGTHS)
 		info->lengths[i] = -1;

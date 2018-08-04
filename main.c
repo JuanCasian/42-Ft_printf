@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:42:24 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/03 19:33:23 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 21:33:46 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,8 @@
 
 int		main(void)
 {
-
-	wchar_t  *s;
-	s = (wchar_t*)malloc(sizeof(wchar_t) * 6);
-	s[0] = 0x0438;
-	s[1] = 0x0438;
-	s[2] = 0x0438;
-	s[3] = 0x0438;
-	s[4] = 0x0438;
-	s[5] = '\0';
-	setlocale(LC_ALL, "");
-	int i;
-	int j;
-	char *string = "hello";
-
-//	while (1);
-//
-	   printf ("Characters: %c %c \n", 'a', 65);
+	char *string = "Hello World";
+	printf ("Characters: %c %c \n", 'a', 65);
    printf ("Decimals: %d %ld\n", 1977, 650000L);
    printf ("Preceding with blanks: %10d \n", 1977);
    printf ("Preceding with zeros: %010d \n", 1977);
@@ -43,7 +28,7 @@ int		main(void)
 
    ft_printf("------------------------------------------\n");
 
-   
+
    ft_printf ("Characters: %c %c \n", 'a', 65);
    ft_printf ("Decimals: %d %D\n", 1977, 650000L);
    ft_printf ("Preceding with blanks: %10d \n", 1977);

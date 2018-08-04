@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_var.c                                        :+:      :+:    :+:   */
+/*   get_andprint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/31 19:23:59 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/03 19:21:41 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/03 20:44:22 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/03 20:50:52 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	divide_byspeci(t_info *info)
+static void	get_printable(t_info *info)
 {
 	if (info->speci == 'U' || info->speci == 'u' || info->speci == 'o' ||
 			info->speci == 'x' || info->speci == 'X' || info->speci == 'O' ||
@@ -21,8 +21,8 @@ void	divide_byspeci(t_info *info)
 	else if (info->speci == 'd' || info->speci == 'i' || info->speci == 'D')
 		handle_gsigneds(info);
 	else if (info->speci == 's' || info->speci == 'S')
-		handle_gstrs(info);		
-	else  if (info->speci == 'p' || info->speci == 'P')
+		handle_gstrs(info);
+	else if (info->speci == 'p' || info->speci == 'P')
 		handle_gaddress(info);
 	else if (info->speci == '%')
 		info->res = ft_strdup("%");
@@ -30,19 +30,19 @@ void	divide_byspeci(t_info *info)
 		handle_gchars(info);
 }
 
-void	print_var(t_info *info)
+void		get_andprint(t_info *info)
 {
 	int i;
 
 	i = -1;
-	divide_byspeci(info);
+	get_printable(info);
 	apply_preci(info);
 	apply_flags(info);
 	apply_width(info);
 	if (info->speci == 'S' || info->speci == 'C' || (info->lengths[Ll] == 1 &&
 				(info->speci == 's' || info->speci == 'c')))
 	{
-		while(info->wres[++i])
+		while (info->wres[++i])
 			info->count += ft_putwchar(info->wres[i]);
 		free(info->wres);
 	}

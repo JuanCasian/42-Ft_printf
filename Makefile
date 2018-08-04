@@ -13,15 +13,34 @@
 NAME = libftprintf.a
 
 SRCSDIR = srcs
-LIBSDIR = libs
-SRCS = $(addprefix $(SRCSDIR)/,\
-	   ft_printf.c struct_handle.c checks.c print_var.c is_tests.c \
-	   put_error.c check_lengthspt2.c ft_itoalong.c ft_utoabase.c \
-	   address_tostr.c str_addprev.c str_addsuf.c handle_groups.c \
-	   ft_strtoupper.c char_tostr.c wchar_functions.c wchar_functionspt2.c \
-	   apply_flags.c apply_preci.c apply_width.c wstr_addprev.c)
 
-INCLUDES = 	includes
+LIBFTDIR = libft
+
+LIBFTSRCS = $(addprefix $(LIBFTDIR)/,\
+	ft_atoi.c ft_bzero.c ft_count_words.c ft_filetostr.c ft_is_space.c \
+	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c \
+	ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \
+	ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memdel.c \
+	ft_memmove.c ft_memset.c ft_printlist.c ft_putchar.c ft_putchar_fd.c \
+	ft_putendl.c ft_putendl_fd.c ft_putnbr.c ft_putnbr_fd.c ft_putstr.c \
+	ft_putstr_fd.c ft_remalloc.c ft_samplelist.c ft_strcat.c ft_strchr.c \
+	ft_strclr.c ft_strcmp.c ft_strcpy.c ft_strdel.c ft_strdup.c ft_strequ.c \
+	ft_strinit.c ft_striter.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
+	ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c ft_strncmp.c ft_strncpy.c \
+	ft_strndup.c ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strrev.c \
+	ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c ft_tolower.c ft_toupper.c \
+	get_next_line.c)
+
+SRCS = $(addprefix $(SRCSDIR)/,\
+	address_tostr.c apply_flags.c apply_preci.c apply_width.c char_tostr.c \
+	checks.c checkspt2.c ft_itoalong.c ft_printf.c ft_strtoupper.c ft_utoabase.c \
+	get_andprint.c handle_groups.c is_tests.c put_error.c str_manipulation.c \
+	struct_handle.c wchar_functions.c wchar_functionspt2.c wstr_manipulation.c)
+
+INCLUDES = includes
+
+LIBFTOBJECTS = $(patsubst %.c, %.o, $(LIBFTSRCS))
+
 OBJECTS = $(patsubst %.c, %.o, $(SRCS))
 
 all: $(NAME)
@@ -29,31 +48,20 @@ all: $(NAME)
 %.o: %.c
 	gcc -c -Wall -Werror -Wextra -I$(INCLUDES) -c $< -o $@
 
-$(NAME): $(OBJECTS)
-	ar rc libs/$(NAME) $(OBJECTS)
-	ranlib libs/$(NAME)
+$(NAME): $(OBJECTS) $(LIBFTOBJECTS)
+	ar rc $(NAME) $(OBJECTS) $(LIBFTOBJECTS)
+	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(LIBFTOBJECTS)
 
 fclean: clean
-	rm -f libs/$(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-test: re clean
-	gcc -Wall -Werror -Wextra srcs/main.c -I$(INCLUDES) -L$(LIBSDIR) -lft -lftprintf -o test
+test: re
+	gcc main.c -L. -lftprintf -I$(INCLUDES) -o test
 
 testclean: fclean
-	rm -rf test
-
-retest: testclean test
-	rm -f $(OBJECTS)
-
-debug:
-	gcc -g -Wall -Wextra -Werror -I$(INCLUDES) srcs/*.c libft/*.c -o debug
-
-debugclean:
-	rm -rf debug*
-
-redebug: debugclean debug
+	rm test

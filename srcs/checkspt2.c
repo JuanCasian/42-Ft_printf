@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_addprev.c                                      :+:      :+:    :+:   */
+/*   check_lengthspt2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/02 19:03:13 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/03 18:43:13 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/01 15:41:30 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/03 21:13:53 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*str_addprev(char *prefix, char *str)
+void	check_lengthspt2(t_info *info)
 {
-	int		i;
-	int		j;
-	char	*res;
-
-	j = -1;
-	i = ft_strlen(prefix) + ft_strlen(str);
-	if (!(res = ft_strnew(i)))
-		put_error();
-	while (prefix[++j])
-		res[j] = prefix[j];
-	i = 0;
-	while (str[i])
+	if (info->str[0][0] == 'l')
 	{
-		res[j] = str[i];
-	   i++;
-	   j++;	   
+		if (info->str[0][1] == 'l')
+		{
+			reinit_lengths(info);
+			info->lengths[Lll] = 1;
+			(info->str[0])++;
+		}
+		else
+		{
+			reinit_lengths(info);
+			info->lengths[Ll] = 1;
+		}
 	}
-	free(str);
-	return (res);
+	else if (info->str[0][0] == 'z')
+	{
+		reinit_lengths(info);
+		info->lengths[Lz] = 1;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 13:54:23 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 14:28:17 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 20:58:55 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char		*ft_itoalong(long long int n)
 {
 	char	*res;
 	int		i;
-	
+
 	if ((res = check_specialcase(n)))
 		return (res);
 	i = find_numlength(n);
