@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:39:27 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/01 13:37:01 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 12:44:08 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int			ft_printf(char *str, ...)
 	va_list	args;
 	int		count;
 
+	setlocale(LC_ALL, "");
 	if (!(info = (t_info*)malloc(sizeof(t_info))) || !(str))
 		put_error();
 	va_start(args, str);

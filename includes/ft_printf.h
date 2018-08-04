@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:21:51 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 21:01:36 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 18:49:25 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 # include <wchar.h>
 # include <stdarg.h>
+# include <locale.h>
 
 # define NFLAGS 5
 # define NLENGTHS 6
@@ -32,6 +33,7 @@ typedef struct	s_info
 	char	**str;
 	int		count;
 	char	*res;
+	wchar_t	*wres;
 	int		leftpadded;
 	int		zeropadded;
 }				t_info;
@@ -84,5 +86,19 @@ void			handle_gunsigneds(t_info *info);
 void			handle_gchars(t_info *info);
 void			handle_gstrs(t_info *info);
 char			*char_tostr(int c);
+int				ft_putwchar(wchar_t c);
+wchar_t			*ft_wstrnew(size_t size);
+wchar_t			*ft_wstrdup(const wchar_t *s1);
+wchar_t			*wchar_tostr(wchar_t c);
+int				ft_wstrlen(wchar_t *wstr);
+int				ft_wclen(wchar_t wc);
+int				wchar_utf8(wchar_t wc, char	*convertion);
+void			apply_flags(t_info *info);
+void			apply_preci(t_info *info);
+int				wchar_utf8len(wchar_t wc);
+void			apply_width(t_info *info);
+wchar_t			*wstr_addsuf(wchar_t *suffix, wchar_t *str);
+wchar_t			*wstr_addprev(wchar_t *prefix, wchar_t *str);
+
 
 #endif

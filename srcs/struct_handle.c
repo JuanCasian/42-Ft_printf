@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 18:32:25 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 13:06:57 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 14:57:47 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	reinit_struct(t_info *info)
 	info->speci = '~';
 	info->leftpadded = -1;
 	info->zeropadded = -1;
+	info->res = NULL;
+	info->wres = NULL;
 }
 
 void	reinit_lengths(t_info *info)

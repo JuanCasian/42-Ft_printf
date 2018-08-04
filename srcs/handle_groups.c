@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 19:59:19 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 21:02:09 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 19:42:09 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,31 @@ void	handle_gunsigneds(t_info *info)
 
 void	handle_gchars(t_info *info)
 {
-	info->res = char_tostr(va_arg(info->args[0], int));
+	if (info->lengths[Ll] == 1 || info->speci == 'C')
+		info->wres = wchar_tostr(va_arg(info->args[0], wchar_t));
+	else
+		info->res = char_tostr(va_arg(info->args[0], int));
 }
 
 void	handle_gstrs(t_info *info)
 {
-	info->res = ft_strdup(va_arg(info->args[0], char*));
+	char 	*str;
+	wchar_t *wstr;
+
+	if (info->lengths[Ll] == 1 || info->speci == 'S')
+	{
+		if (!(wstr = va_arg(info->args[0], wchar_t*)))
+			info->wres = ft_wstrdup(L"(null)");
+		else
+			info->wres = ft_wstrdup(wstr);
+	}
+	else
+	{
+		if (!(str = va_arg(info->args[0], char*)))
+			info->res = ft_strdup("(null)");
+		else
+			info->res = ft_strdup(str);
+	}
 }
 
 void	handle_gaddress(t_info *info)

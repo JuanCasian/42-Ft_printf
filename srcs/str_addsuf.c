@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 19:10:15 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 19:16:52 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 14:42:11 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*str_addsuf(char *suffix, char *str)
 	while (suffix[i])
 	{
 		res[j] = suffix[i];
+		i++;
 	}
 	free(str);
 	return (res);

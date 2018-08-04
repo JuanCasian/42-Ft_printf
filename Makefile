@@ -6,7 +6,7 @@
 #    By: jcasian <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/31 15:26:05 by jcasian           #+#    #+#              #
-#    Updated: 2018/08/02 21:02:42 by jcasian          ###   ########.fr        #
+#    Updated: 2018/08/03 18:49:42 by jcasian          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRCS = $(addprefix $(SRCSDIR)/,\
 	   ft_printf.c struct_handle.c checks.c print_var.c is_tests.c \
 	   put_error.c check_lengthspt2.c ft_itoalong.c ft_utoabase.c \
 	   address_tostr.c str_addprev.c str_addsuf.c handle_groups.c \
-	   ft_strtoupper.c char_tostr.c)
+	   ft_strtoupper.c char_tostr.c wchar_functions.c wchar_functionspt2.c \
+	   apply_flags.c apply_preci.c apply_width.c wstr_addprev.c)
 
 INCLUDES = 	includes
 OBJECTS = $(patsubst %.c, %.o, $(SRCS))
@@ -46,7 +47,8 @@ test: re clean
 testclean: fclean
 	rm -rf test
 
-retest: testclean test clean
+retest: testclean test
+	rm -f $(OBJECTS)
 
 debug:
 	gcc -g -Wall -Wextra -Werror -I$(INCLUDES) srcs/*.c libft/*.c -o debug

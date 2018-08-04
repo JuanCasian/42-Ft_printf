@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 19:23:59 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/02 20:55:49 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 19:21:41 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,21 @@ void	print_var(t_info *info)
 
 	i = -1;
 	divide_byspeci(info);
-	while (info->res[++i])
-		ft_putchar(info->res[i]);
-	free(info->res);
-	info->count += i;
+	apply_preci(info);
+	apply_flags(info);
+	apply_width(info);
+	if (info->speci == 'S' || info->speci == 'C' || (info->lengths[Ll] == 1 &&
+				(info->speci == 's' || info->speci == 'c')))
+	{
+		while(info->wres[++i])
+			info->count += ft_putwchar(info->wres[i]);
+		free(info->wres);
+	}
+	else
+	{
+		while (info->res[++i])
+			ft_putchar(info->res[i]);
+		free(info->res);
+		info->count += i;
+	}
 }
