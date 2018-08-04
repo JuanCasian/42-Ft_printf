@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:39:27 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/03 12:44:08 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 20:41:05 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	check_and_print(t_info *info)
 	check_precis(info);
 	check_lengths(info);
 	check_specis(info);
-	print_var(info);
+	get_andprint(info);
 	reinit_struct(info);
 }
 

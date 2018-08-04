@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/31 15:21:51 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/03 18:49:25 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 21:16:23 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,19 @@ enum			e_lengths
 };
 
 int				ft_printf(char *str, ...);
+void			put_error(void);
 void			reinit_struct(t_info *info);
 void			check_flags(t_info *info);
 void			check_widths(t_info *info);
 void			check_precis(t_info *info);
 void			check_lengths(t_info *info);
 void			check_specis(t_info *info);
-void			print_var(t_info *info);
 int				is_flag(char c);
 int				is_width(char c);
 int				is_preci(char c);
 int				is_length(char c);
 int				is_speci(char c);
-void			put_error(void);
+void			get_andprint(t_info *info);
 void			reinit_lengths(t_info *info);
 void			check_lengthspt2(t_info *info);
 char			*ft_itoalong(long long int n);
@@ -99,6 +99,5 @@ int				wchar_utf8len(wchar_t wc);
 void			apply_width(t_info *info);
 wchar_t			*wstr_addsuf(wchar_t *suffix, wchar_t *str);
 wchar_t			*wstr_addprev(wchar_t *prefix, wchar_t *str);
-
 
 #endif

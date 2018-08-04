@@ -6,13 +6,13 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 18:17:20 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/03 19:29:18 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 21:12:35 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	apply_widthpt3(t_info *info , int len)
+void	apply_widthpt3(t_info *info, int len)
 {
 	if (info->flags[Fminus] == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 12:59:40 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/03 18:54:36 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/03 21:01:45 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ wchar_t	*ft_wstrnew(size_t size)
 	return (wstr);
 }
 
-wchar_t *ft_wstrdup(const wchar_t *s1)
+wchar_t	*ft_wstrdup(const wchar_t *s1)
 {
 	wchar_t *wres;
 	int		i;
@@ -54,7 +54,7 @@ wchar_t *ft_wstrdup(const wchar_t *s1)
 	return (wres);
 }
 
-wchar_t		*wchar_tostr(wchar_t c)
+wchar_t	*wchar_tostr(wchar_t c)
 {
 	wchar_t	*wres;
 
@@ -63,7 +63,7 @@ wchar_t		*wchar_tostr(wchar_t c)
 	return (wres);
 }
 
-int		ft_wstrlen(wchar_t	*wstr)
+int		ft_wstrlen(wchar_t *wstr)
 {
 	int i;
 	int len;
