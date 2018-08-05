@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_wstraddsuffix.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 19:46:31 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:25:20 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/04 21:28:31 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/04 21:29:54 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strnew(size_t size)
+wchar_t *ft_wstraddsuffix(wchar_t *suffix, wchar_t *str)
 {
-	char	*str;
-	size_t	i;
+	int		i;
+	int		j;
+	wchar_t	*res;
 
+	j = 0;
 	i = 0;
-	str = (char*)malloc(sizeof(char) * size + 1);
-	if (!str)
-		return (NULL);
-	while (i <= size)
+	while (suffix[i])
+		i++;
+	while (str[j++])
+		i++;
+	if (!(res = ft_wstrnew(i)))
+		print_error();
+	j = -1;
+	while (str[++j])
+		res[j] = str[j];
+	i = 0;
+	while (suffix[i])
 	{
-		str[i] = '\0';
+		res[j++] = suffix[i];
 		i++;
 	}
-	return (str);
+	free(str);
+	return (res);
 }

@@ -6,11 +6,11 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 19:34:19 by jcasian           #+#    #+#             */
-/*   Updated: 2018/07/10 19:46:05 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/04 21:34:07 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 char	*ft_strdup(const char *s1)
 {

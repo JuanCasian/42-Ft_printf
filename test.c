@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 19:46:31 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:25:20 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/04 18:41:50 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/04 22:11:44 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <locale.h>
 #include "ft_printf.h"
 
-char	*ft_strnew(size_t size)
+int		main(void)
 {
-	char	*str;
-	size_t	i;
+	int	k;
+	int j;
 
-	i = 0;
-	str = (char*)malloc(sizeof(char) * size + 1);
-	if (!str)
-		return (NULL);
-	while (i <= size)
-	{
-		str[i] = '\0';
-		i++;
-	}
-	return (str);
+	wchar_t *s;
+
+	s = ft_wstrdup(L"HELLOOO");
+	s[3] = 0x1F601;
+	
+	setlocale(LC_ALL, "");
+	j  = ft_printf("YOURS: %.-20ls\n", s);
+	printf("YOURS: %i\n", j);
+	setlocale(LC_ALL, "");
+	k  = printf("REAL#: %.-20ls\n", s);
+	printf("REAL#: %i\n", k);
+	return (0);
 }

@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 19:46:31 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:25:20 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/04 18:49:39 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/04 18:53:14 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+# include "ft_printf.h"
 
-char	*ft_strnew(size_t size)
+void	print_error(void)
 {
-	char	*str;
-	size_t	i;
-
-	i = 0;
-	str = (char*)malloc(sizeof(char) * size + 1);
-	if (!str)
-		return (NULL);
-	while (i <= size)
-	{
-		str[i] = '\0';
-		i++;
-	}
-	return (str);
+	ft_putendl("ERROR");
+	exit(-1);
 }

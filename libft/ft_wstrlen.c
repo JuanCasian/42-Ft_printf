@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 19:46:31 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:25:20 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/04 20:51:30 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/04 20:52:47 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strnew(size_t size)
+int		ft_wstrlen(wchar_t *wstr)
 {
-	char	*str;
-	size_t	i;
+	int	i;
+	int len;
 
 	i = 0;
-	str = (char*)malloc(sizeof(char) * size + 1);
-	if (!str)
-		return (NULL);
-	while (i <= size)
+	len = 0;
+	while (wstr[i])
 	{
-		str[i] = '\0';
+		len += ft_wchar_len(wstr[i]);
 		i++;
 	}
-	return (str);
+	return (len);
 }

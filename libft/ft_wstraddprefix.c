@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_wstraddprefix.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 19:46:31 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:25:20 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/04 21:29:30 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/04 21:35:55 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strnew(size_t size)
+wchar_t *ft_wstraddprefix(wchar_t *prefix, wchar_t *str)
 {
-	char	*str;
-	size_t	i;
+	int		i;
+	int		j;
+	wchar_t *res;
 
+	j = 0;
 	i = 0;
-	str = (char*)malloc(sizeof(char) * size + 1);
-	if (!str)
-		return (NULL);
-	while (i <= size)
+	while (prefix[i])
+		i++;
+	while (str[j++])
+		i++;
+	if (!(res = ft_wstrnew(i)))
+		print_error();
+	j = -1;
+	while (prefix[++j])
+		res[j] = prefix[j];
+	i = 0;
+	while (str[i])
 	{
-		str[i] = '\0';
+		res[j++] = str[i];
 		i++;
 	}
-	return (str);
+	free(str);
+	return (res);
 }

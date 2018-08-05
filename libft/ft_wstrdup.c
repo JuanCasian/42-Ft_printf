@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_wstrdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 19:46:31 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:25:20 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/04 20:33:45 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/04 21:56:05 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strnew(size_t size)
+static int	num_wchars(wchar_t *wstr)
 {
-	char	*str;
-	size_t	i;
+	int i;
 
 	i = 0;
-	str = (char*)malloc(sizeof(char) * size + 1);
-	if (!str)
+	while (wstr[i])
+		i++;
+	return (i);
+}
+
+wchar_t		*ft_wstrdup(wchar_t *wstr)
+{
+	wchar_t	*res;
+	int		i;
+
+	i = 0;
+	if (!(res = (wchar_t*)malloc(sizeof(wchar_t) * num_wchars(wstr) + 1)))
 		return (NULL);
-	while (i <= size)
+	while (wstr[i])
 	{
-		str[i] = '\0';
+		res[i] = wstr[i];
 		i++;
 	}
-	return (str);
+	res[i] = 0;
+	return (res);
 }
