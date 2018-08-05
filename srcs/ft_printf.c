@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 18:47:22 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 13:10:05 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/05 15:41:20 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ static void	prepare_bytype(t_info *info)
 		prepare_str(info);
 	else if (info->speci == 'p' || info->speci == 'P')
 		prepare_address(info);
-/*	else if (info->speci == 'x' || info->speci == 'X')
+	else if (info->speci == 'x' || info->speci == 'X')
 		prepare_hexadecimal(info);
-	else if (info->speci == 'd' || info->speci == 'D' ||
+/*	else if (info->speci == 'd' || info->speci == 'D' ||
 			info->speci == 'i' || info->speci == 'I')
 		prepare_signed(info);
-	else if (info->speci == 'u' || info->speci == 'U')
+*/	else if (info->speci == 'u' || info->speci == 'U')
 		prepare_undecimal(info);
 	else if (info->speci == 'o' || info->speci == 'O')
 		prepare_octal(info);
-	else if (info->speci == 'c' || info->speci == 'C')
-		prepare_char(info);
-	else if (info->speci == 'b')
-		prepare_binary(info);*/
+/*	else if (info->speci == 'c' || info->speci == 'C')
+		prepare_char(info);*/
+	else if (info->speci == 'b' || info->speci == 'B')
+		prepare_binary(info);
 	else if (info->speci == '%')
 		prepare_percentage(info);
 }

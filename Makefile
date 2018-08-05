@@ -6,7 +6,7 @@
 #    By: jcasian <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/04 18:30:42 by jcasian           #+#    #+#              #
-#    Updated: 2018/08/05 13:58:00 by jcasian          ###   ########.fr        #
+#    Updated: 2018/08/05 15:44:02 by jcasian          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ INCLUDES = includes
 
 SRCS = $(addprefix $(SRCSDIR)/,\
 	   ft_printf.c print_error.c struct_handle.c checks_after_percentage.c \
-	   is_tests.c prepare_str.c prepare_percentage.c prepare_address.c)
+	   is_tests.c prepare_str.c prepare_percentage.c prepare_address.c \
+	   prepare_hexadecimal.c prepare_undecimal.c prepare_octal.c \
+	   prepare_binary.c)
 
 LIBFTSRCS = $(addprefix $(LIBFTDIR)/,\
 			ft_putchar.c ft_putendl.c ft_putstr.c ft_atoi.c ft_strdup.c \
