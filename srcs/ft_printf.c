@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 18:47:22 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:47:32 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/05 13:10:05 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static void	prepare_bytype(t_info *info)
 {
 	if (info->speci == 's' || info->speci == 'S')
 		prepare_str(info);
-/*	else if (info->speci == 'p' || info->speci == 'P')
+	else if (info->speci == 'p' || info->speci == 'P')
 		prepare_address(info);
-	else if (info->speci == 'x' || info->speci == 'X')
+/*	else if (info->speci == 'x' || info->speci == 'X')
 		prepare_hexadecimal(info);
 	else if (info->speci == 'd' || info->speci == 'D' ||
 			info->speci == 'i' || info->speci == 'I')

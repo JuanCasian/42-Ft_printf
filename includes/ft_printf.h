@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 18:45:55 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:44:43 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/05 13:44:02 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int				ft_atoi(const char *str);
 char			*ft_strdup(const char *s1);
 size_t			ft_strlen(char *str);
 char			*ft_strnew(size_t size);
+int				ft_toupper(int c);
 
 /* NEW LIBFT */
 wchar_t			*ft_wstrdup(wchar_t *wstr);
@@ -76,6 +77,8 @@ wchar_t			*ft_wstraddprefix(wchar_t *prefix, wchar_t *str);
 void			print_error(void);
 wchar_t			*ft_wstrnew(size_t	size);
 int				ft_putwchar(wchar_t wc);
+char			*ft_utoabaseuintmax(uintmax_t n, uintmax_t  base);
+void			ft_strtoupper(char **str);
 
 /* FT_PRINTF */
 int				ft_printf(char *format, ...);
@@ -94,5 +97,6 @@ int				is_length(char c);
 int				is_speci(char c);
 void			prepare_str(t_info *info);
 void 			prepare_percentage(t_info *info);
+void			prepare_address(t_info *info);
 
 #endif

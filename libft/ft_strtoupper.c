@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 18:41:50 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 14:08:24 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/05 13:41:45 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/05 13:56:58 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <locale.h>
 #include "ft_printf.h"
 
-int		main(void)
+void	ft_strtoupper(char **str)
 {
-	int	k;
-	int j;
+	int i;
 
-	wchar_t *s;
-
-	s = ft_wstrdup(L"HELLOOO");
-	s[3] = 0x1F601;
-
-	setlocale(LC_ALL, "");
-	j  = ft_printf("YOURS: %30.20p\n", (void*)&s);
-	printf("YOURS: %i\n", j);
-	setlocale(LC_ALL, "");
-	k  = printf("REAL#: %30.20p\n", (void*)&s);
-	printf("REAL#: %i\n", k);
-	return (0);
+	i = -1;
+	while (str[0][++i])
+		str[0][i] = ft_toupper(str[0][i]);
 }

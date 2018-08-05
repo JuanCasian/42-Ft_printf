@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 18:41:50 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 14:08:24 by jcasian          ###   ########.fr       */
+/*   Created: 2018/07/10 15:03:13 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/05 13:43:51 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <locale.h>
 #include "ft_printf.h"
 
-int		main(void)
+int	ft_toupper(int c)
 {
-	int	k;
-	int j;
-
-	wchar_t *s;
-
-	s = ft_wstrdup(L"HELLOOO");
-	s[3] = 0x1F601;
-
-	setlocale(LC_ALL, "");
-	j  = ft_printf("YOURS: %30.20p\n", (void*)&s);
-	printf("YOURS: %i\n", j);
-	setlocale(LC_ALL, "");
-	k  = printf("REAL#: %30.20p\n", (void*)&s);
-	printf("REAL#: %i\n", k);
-	return (0);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	else
+		return (c);
 }
