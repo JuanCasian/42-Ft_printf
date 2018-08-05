@@ -22,12 +22,12 @@ int		main(void)
 
 	s = ft_wstrdup(L"HELLOOO");
 	s[3] = 0x1F601;
-	
+
 	setlocale(LC_ALL, "");
-	j  = ft_printf("YOURS: %.-20ls\n", s);
+	j  = ft_printf("YOURS: %0.10%\n");
 	printf("YOURS: %i\n", j);
 	setlocale(LC_ALL, "");
-	k  = printf("REAL#: %.-20ls\n", s);
+	k  = printf("REAL#: %0.10%\n");
 	printf("REAL#: %i\n", k);
 	return (0);
 }

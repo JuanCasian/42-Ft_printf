@@ -93,5 +93,6 @@ int				is_preci(char c);
 int				is_length(char c);
 int				is_speci(char c);
 void			prepare_str(t_info *info);
+void 			prepare_percentage(t_info *info);
 
 #endif

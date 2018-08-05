@@ -30,9 +30,9 @@ static void	prepare_bytype(t_info *info)
 	else if (info->speci == 'c' || info->speci == 'C')
 		prepare_char(info);
 	else if (info->speci == 'b')
-		prepare_binary(info);
+		prepare_binary(info);*/
 	else if (info->speci == '%')
-		prepare_percentage(info);*/
+		prepare_percentage(info);
 }
 
 static void	print_res(t_info *info)

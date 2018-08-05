@@ -22,7 +22,7 @@ INCLUDES = includes
 
 SRCS = $(addprefix $(SRCSDIR)/,\
 	   ft_printf.c print_error.c struct_handle.c checks_after_percentage.c \
-	   is_tests.c prepare_str.c)
+	   is_tests.c prepare_str.c prepare_percentage.c)
 
 LIBFTSRCS = $(addprefix $(LIBFTDIR)/,\
 			ft_putchar.c ft_putendl.c ft_putstr.c ft_atoi.c ft_strdup.c \
