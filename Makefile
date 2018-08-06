@@ -44,6 +44,7 @@ all: $(NAME)
 	gcc -c -Wall -Werror -Wextra -I$(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJECTS) $(LIBFTOBJECTS)
+	mkdir libs
 	ar rc $(LIBSDIR)/$(NAME) $(OBJECTS) $(LIBFTOBJECTS)
 	ranlib $(LIBSDIR)/$(NAME)
 
