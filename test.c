@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 18:41:50 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 15:44:25 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/05 17:26:16 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int		main(void)
 	r = 9;
 
 	setlocale(LC_ALL, "");
-	j  = ft_printf("YOURS: %#010.4llb\n",(unsigned long long int)r);
+	j  = ft_printf("YOURS: %0 10lld\n",(long long int)r);
 	printf("YOURS: %i\n", j);
 	setlocale(LC_ALL, "");
-	k  = printf("REAL#: %#010.4llo\n", (unsigned long long int)r);
+	k  = printf("REAL#: %0 10lld\n", (long long int)r);
 	printf("REAL#: %i\n", k);
 	return (0);
 }

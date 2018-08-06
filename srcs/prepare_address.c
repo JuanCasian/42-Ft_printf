@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 13:26:01 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 14:07:43 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/05 16:38:57 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ void		prepare_address(t_info *info)
 	}
 	else
 	{
-		if (!(info->res = ft_utoabaseuintmax((uintmax_t)arg, 16)))
+		if (!(info->res = ft_utoabaselonglong(
+						(unsigned long long int)arg, 16)))
 			print_error();
 	}
 	apply_precision(info);

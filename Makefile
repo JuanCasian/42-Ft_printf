@@ -6,7 +6,7 @@
 #    By: jcasian <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/04 18:30:42 by jcasian           #+#    #+#              #
-#    Updated: 2018/08/05 15:44:02 by jcasian          ###   ########.fr        #
+#    Updated: 2018/08/05 16:36:37 by jcasian          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,14 +24,15 @@ SRCS = $(addprefix $(SRCSDIR)/,\
 	   ft_printf.c print_error.c struct_handle.c checks_after_percentage.c \
 	   is_tests.c prepare_str.c prepare_percentage.c prepare_address.c \
 	   prepare_hexadecimal.c prepare_undecimal.c prepare_octal.c \
-	   prepare_binary.c)
+	   prepare_binary.c prepare_signed.c)
 
 LIBFTSRCS = $(addprefix $(LIBFTDIR)/,\
 			ft_putchar.c ft_putendl.c ft_putstr.c ft_atoi.c ft_strdup.c \
 			ft_strlen.c ft_wstrdup.c ft_wchar_len.c ft_wstrlen.c \
 			ft_straddprefix.c ft_straddsuffix.c ft_wstraddprefix.c \
 			ft_wstraddsuffix.c ft_strnew.c ft_wstrnew.c ft_putwchar.c \
-			ft_utoabaseuintmax.c ft_strtoupper.c ft_toupper.c)
+			ft_utoabaselonglong.c ft_strtoupper.c ft_toupper.c \
+			ft_itoalonglong.c)
 
 OBJECTS = $(patsubst %.c, %.o, $(SRCS))
 

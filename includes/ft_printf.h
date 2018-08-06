@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 18:45:55 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 15:50:48 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/05 16:35:47 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,10 @@ wchar_t			*ft_wstraddprefix(wchar_t *prefix, wchar_t *str);
 void			print_error(void);
 wchar_t			*ft_wstrnew(size_t	size);
 int				ft_putwchar(wchar_t wc);
-char			*ft_utoabaseuintmax(uintmax_t n, uintmax_t  base);
+char			*ft_utoabaselonglong(unsigned long long int n,
+		unsigned long long int base);
 void			ft_strtoupper(char **str);
-char			*ft_itoaintmax(intmax_t n);
+char			*ft_itoalonglong(long long int  n);
 
 /* FT_PRINTF */
 int				ft_printf(char *format, ...);
@@ -103,5 +104,6 @@ void			prepare_hexadecimal(t_info *info);
 void			prepare_undecimal(t_info *info);
 void			prepare_octal(t_info *info);
 void			prepare_binary(t_info *info);
+void			prepare_signed(t_info *info);
 
 #endif

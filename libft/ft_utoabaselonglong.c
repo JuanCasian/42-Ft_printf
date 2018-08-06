@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utoabaseuintmax.c                               :+:      :+:    :+:   */
+/*   ft_utoabaselonglong.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/05 13:58:44 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 13:59:03 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/05 16:36:14 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/05 16:36:16 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	count_digits(uintmax_t n, uintmax_t base)
+static int	count_digits(unsigned long long int  n,
+		unsigned long long int base)
 {
 	int i;
 
@@ -25,7 +26,7 @@ static int	count_digits(uintmax_t n, uintmax_t base)
 	return (i);
 }
 
-static char	get_char(uintmax_t n)
+static char	get_char(unsigned long long int n)
 {
 	char	vals[16];
 	int		i;
@@ -42,7 +43,7 @@ static char	get_char(uintmax_t n)
 	return (vals[n]);
 }
 
-static char	*is_zero(uintmax_t n)
+static char	*is_zero(unsigned long long int n)
 {
 	char	*res;
 
@@ -54,7 +55,8 @@ static char	*is_zero(uintmax_t n)
 }
 
 
-char		*ft_utoabaseuintmax(uintmax_t n, uintmax_t base)
+char		*ft_utoabaselonglong(unsigned long long int n,
+		unsigned long long int base)
 {
 	char	*res;
 	int		i;

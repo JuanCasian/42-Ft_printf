@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 14:15:27 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 14:59:11 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/05 16:48:16 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,26 +73,26 @@ static void	apply_precision(t_info *info)
 void		prepare_hexadecimal(t_info *info)
 {
 	if (info->lens[Lhh] == 1)
-		info->res = ft_utoabaseuintmax((uintmax_t)va_arg(info->args[0],
-					unsigned int), 16);
+		info->res = ft_utoabaselonglong((unsigned long long int)va_arg(
+					info->args[0], unsigned int), 16);
 	else if (info->lens[Lh] == 1)
-		info->res = ft_utoabaseuintmax((uintmax_t)va_arg(info->args[0],
-					unsigned int), 16);
+		info->res = ft_utoabaselonglong((unsigned long long int)va_arg(
+					info->args[0], unsigned int), 16);
 	else if (info->lens[Ll] == 1)
-		info->res = ft_utoabaseuintmax((uintmax_t)va_arg(info->args[0],
-					unsigned long int), 16);
+		info->res = ft_utoabaselonglong((unsigned long long int)va_arg(
+					info->args[0], unsigned long int), 16);
 	else if (info->lens[Lll] == 1)
-		info->res = ft_utoabaseuintmax((uintmax_t)va_arg(info->args[0],
-					unsigned long long int), 16);
+		info->res = ft_utoabaselonglong(va_arg(
+					info->args[0], unsigned long long int), 16);
 	else if (info->lens[Lj] == 1)
-		info->res = ft_utoabaseuintmax(va_arg(info->args[0],
-					uintmax_t), 16);
+		info->res = ft_utoabaselonglong((unsigned long long int)va_arg(
+					info->args[0], uintmax_t), 16);
 	else if (info->lens[Lz] == 1)
-		info->res = ft_utoabaseuintmax((uintmax_t)va_arg(info->args[0],
-					size_t), 16);
+		info->res = ft_utoabaselonglong((unsigned long long int)va_arg(
+					info->args[0], size_t), 16);
 	else
-		info->res = ft_utoabaseuintmax((uintmax_t)va_arg(info->args[0],
-					int), 16);
+		info->res = ft_utoabaselonglong((unsigned long long int)va_arg(
+					info->args[0], unsigned int), 16);
 	apply_precision(info);
 	apply_width(info);
 	if (info->speci == 'X')
