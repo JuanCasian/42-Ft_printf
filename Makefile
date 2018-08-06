@@ -24,7 +24,7 @@ SRCS = $(addprefix $(SRCSDIR)/,\
 	   ft_printf.c print_error.c struct_handle.c checks_after_percentage.c \
 	   is_tests.c prepare_str.c prepare_percentage.c prepare_address.c \
 	   prepare_hexadecimal.c prepare_undecimal.c prepare_octal.c \
-	   prepare_binary.c prepare_signed.c)
+	   prepare_binary.c prepare_signed.c prepare_char.c)
 
 LIBFTSRCS = $(addprefix $(LIBFTDIR)/,\
 			ft_putchar.c ft_putendl.c ft_putstr.c ft_atoi.c ft_strdup.c \

@@ -105,5 +105,6 @@ void			prepare_undecimal(t_info *info);
 void			prepare_octal(t_info *info);
 void			prepare_binary(t_info *info);
 void			prepare_signed(t_info *info);
+void			prepare_char(t_info *info);
 
 #endif

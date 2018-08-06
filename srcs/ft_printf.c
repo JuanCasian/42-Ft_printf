@@ -27,8 +27,8 @@ static void	prepare_bytype(t_info *info)
 		prepare_undecimal(info);
 	else if (info->speci == 'o' || info->speci == 'O')
 		prepare_octal(info);
-/*	else if (info->speci == 'c' || info->speci == 'C')
-		prepare_char(info);*/
+	else if (info->speci == 'c' || info->speci == 'C')
+		prepare_char(info);
 	else if (info->speci == 'b' || info->speci == 'B')
 		prepare_binary(info);
 	else if (info->speci == '%')

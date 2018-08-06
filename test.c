@@ -20,16 +20,19 @@ int		main(void)
 
 	long r;
 	wchar_t *s;
+	char c;
+
+	c = 'a';
 
 	s = ft_wstrdup(L"HELLOOO");
 	s[3] = 0x1F601;
 	r = 9;
 
 	setlocale(LC_ALL, "");
-	j  = ft_printf("YOURS: %0 10lld\n",(long long int)r);
+	j  = ft_printf("YOURS: %10.5lc\n", s[3]);
 	printf("YOURS: %i\n", j);
 	setlocale(LC_ALL, "");
-	k  = printf("REAL#: %0 10lld\n", (long long int)r);
+	k  = printf("REAL#: %10.5lc\n", s[3]);
 	printf("REAL#: %i\n", k);
 	return (0);
 }
