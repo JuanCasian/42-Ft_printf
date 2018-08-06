@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_wstrnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 19:46:31 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:25:20 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/04 21:27:29 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/04 21:56:41 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strnew(size_t size)
+wchar_t *ft_wstrnew(size_t size)
 {
-	char	*str;
-	size_t	i;
+	wchar_t *wstr;
+	size_t  i;
 
 	i = 0;
-	str = (char*)malloc(sizeof(char) * size + 1);
-	if (!str)
+	wstr = (wchar_t*)malloc(sizeof(wchar_t) * size + 1);
+	if (!wstr)
 		return (NULL);
 	while (i <= size)
 	{
-		str[i] = '\0';
+		wstr[i] = 0;
 		i++;
 	}
-	return (str);
+	return (wstr);
 }

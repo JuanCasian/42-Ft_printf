@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_straddprefix.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 19:46:31 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:25:20 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/04 21:19:33 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/04 21:22:34 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strnew(size_t size)
+char    *ft_straddprefix(char *prefix, char *str)
 {
-	char	*str;
-	size_t	i;
+	int             i;
+	int             j;
+	char    *res;
 
+	j = -1;
+	i = ft_strlen(prefix) + ft_strlen(str);
+	if (!(res = ft_strnew(i)))
+		print_error();
+	while (prefix[++j])
+		res[j] = prefix[j];
 	i = 0;
-	str = (char*)malloc(sizeof(char) * size + 1);
-	if (!str)
-		return (NULL);
-	while (i <= size)
+	while (str[i])
 	{
-		str[i] = '\0';
+		res[j] = str[i];
 		i++;
+		j++;
 	}
-	return (str);
+	free(str);
+	return (res);
 }

@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_straddsuffix.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 19:46:31 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:25:20 by jcasian          ###   ########.fr       */
+/*   Created: 2018/08/04 21:22:52 by jcasian           #+#    #+#             */
+/*   Updated: 2018/08/04 21:23:41 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strnew(size_t size)
+char    *ft_straddsuffix(char *suffix, char *str)
 {
-	char	*str;
-	size_t	i;
+	char	*res;
+	int		i;
+	int		j;
 
+	i = ft_strlen(suffix) + ft_strlen(str);
+	if (!(res = ft_strnew(i)))
+		print_error();
+	j = -1;
 	i = 0;
-	str = (char*)malloc(sizeof(char) * size + 1);
-	if (!str)
-		return (NULL);
-	while (i <= size)
+	while (str[++j])
+		res[j] = str[j];
+	while (suffix[i])
 	{
-		str[i] = '\0';
+		res[j] = suffix[i];
 		i++;
 	}
-	return (str);
+	free(str);
+	return (res);
 }
