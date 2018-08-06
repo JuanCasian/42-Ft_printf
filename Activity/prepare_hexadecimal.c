@@ -6,13 +6,13 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 14:15:27 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 16:48:16 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 14:13:30 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void apply_hash(t_info *info, int flag)
+static void	apply_hash(t_info *info, int flag)
 {
 	if (info->flags[Fhash] == 1)
 	{
@@ -39,7 +39,7 @@ static void	apply_width(t_info *info)
 		}
 		if (info->flags[Fzero] == 1 && info->flags[Fminus] != 1 &&
 				info->flags[Fhash] == 1 && info->preci < 0)
-			len +=2;
+			len += 2;
 		while (info->flags[Fzero] == 1 && len < info->width &&
 				info->preci < 0)
 		{

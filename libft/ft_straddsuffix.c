@@ -6,13 +6,13 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 21:22:52 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:23:41 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 14:30:46 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char    *ft_straddsuffix(char *suffix, char *str)
+char	*ft_straddsuffix(char *suffix, char *str)
 {
 	char	*res;
 	int		i;

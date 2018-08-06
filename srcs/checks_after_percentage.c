@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 19:32:22 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 22:20:46 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 14:17:52 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	check_for_preci(t_info *info)
 		}
 	}
 }
-
 
 void	check_for_lengths(t_info *info)
 {

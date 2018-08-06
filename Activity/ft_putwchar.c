@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 21:45:02 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:46:54 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 14:34:43 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	wchar_utf8(wchar_t wc, char *convertion)
 {
-	int     len;
+	int	len;
 
 	len = 0;
 	if (wc <= 0xFF)
@@ -42,8 +42,8 @@ static int	wchar_utf8(wchar_t wc, char *convertion)
 
 int			ft_putwchar(wchar_t wc)
 {
-	int     len;
-	char    convertion[4];
+	int		len;
+	char	convertion[4];
 
 	len = wchar_utf8(wc, convertion);
 	write(1, convertion, len);

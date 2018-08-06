@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 13:26:01 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 16:38:57 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 14:13:56 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	apply_width(t_info *info)
 			len++;
 		}
 		if (info->flags[Fzero] == 1 && info->flags[Fminus] != 1)
-			len +=2;
+			len += 2;
 		while (info->flags[Fzero] == 1 && len < info->width)
 		{
 			info->res = ft_straddprefix("0", info->res);

@@ -6,13 +6,13 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 21:29:30 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:35:55 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 14:32:12 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-wchar_t *ft_wstraddprefix(wchar_t *prefix, wchar_t *str)
+wchar_t	*ft_wstraddprefix(wchar_t *prefix, wchar_t *str)
 {
 	int		i;
 	int		j;

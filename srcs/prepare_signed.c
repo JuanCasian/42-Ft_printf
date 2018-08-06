@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 16:02:46 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 17:29:59 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 14:27:18 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	apply_width(t_info *info, int isneg)
 		}
 		if (info->flags[Fzero] == 1 && info->flags[Fminus] != 1 &&
 				(info->flags[Fplus] == 1 || info->flags[Fspace] == 1 ||
-				 isneg == 1) && info->preci < 0)
+				isneg == 1) && info->preci < 0)
 			len += 1;
 		while (info->flags[Fzero] == 1 && len < info->width &&
 				info->preci < 0)
@@ -105,5 +105,5 @@ void		prepare_signed(t_info *info)
 		apply_flags(info, isneg);
 	apply_width(info, isneg);
 	if (info->flags[Fzero] == 1 && info->flags[Fminus] != 1 && info->preci < 0)
-		apply_flags(info, isneg);	
+		apply_flags(info, isneg);
 }

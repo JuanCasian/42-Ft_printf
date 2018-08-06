@@ -6,13 +6,13 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 15:19:15 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 16:49:45 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 14:24:41 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void apply_hash(t_info *info, int flag)
+static void	apply_hash(t_info *info, int flag)
 {
 	if (info->flags[Fhash] == 1)
 	{

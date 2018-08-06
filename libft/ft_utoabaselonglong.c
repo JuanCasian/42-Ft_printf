@@ -6,13 +6,13 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 16:36:14 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 16:36:16 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 14:33:50 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	count_digits(unsigned long long int  n,
+static int	count_digits(unsigned long long int n,
 		unsigned long long int base)
 {
 	int i;
@@ -53,7 +53,6 @@ static char	*is_zero(unsigned long long int n)
 		print_error();
 	return (res);
 }
-
 
 char		*ft_utoabaselonglong(unsigned long long int n,
 		unsigned long long int base)

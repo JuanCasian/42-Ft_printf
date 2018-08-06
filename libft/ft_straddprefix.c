@@ -6,17 +6,17 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 21:19:33 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/04 21:22:34 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 14:31:40 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char    *ft_straddprefix(char *prefix, char *str)
+char	*ft_straddprefix(char *prefix, char *str)
 {
-	int             i;
-	int             j;
-	char    *res;
+	int		i;
+	int		j;
+	char	*res;
 
 	j = -1;
 	i = ft_strlen(prefix) + ft_strlen(str);
