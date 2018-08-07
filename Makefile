@@ -6,7 +6,7 @@
 #    By: jcasian <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/04 18:30:42 by jcasian           #+#    #+#              #
-#    Updated: 2018/08/06 18:30:13 by jcasian          ###   ########.fr        #
+#    Updated: 2018/08/06 20:57:40 by jcasian          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,8 @@ re: fclean all
 
 test: re
 	@echo "Creating test..."
-	@gcc test.c -L$(LIBSDIR) -lftprintf -I$(INCLUDES) -o test
+	@gcc srcs/test.c -L$(LIBSDIR) -lftprintf -I$(INCLUDES) -o test
+	@echo "Test Succesfully created!"
 
 testclean: fclean
 	@echo "Deleting test..."
@@ -75,4 +76,4 @@ debugclean:
 	@rm -rf debug*
 
 debug: debugclean
-	@gcc -g test.c $(SRCS) $(LIBFTSRCS) -I$(INCLUDES) -o debug
+	@gcc -g srcs/test.c $(SRCS) $(LIBFTSRCS) -I$(INCLUDES) -o debug
