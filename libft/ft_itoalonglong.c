@@ -6,13 +6,13 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 16:37:20 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 16:53:49 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 17:17:54 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*check_specialcases(long long int n)
+static char	*check_specialcases(long long n)
 {
 	char *res;
 
@@ -31,7 +31,7 @@ static char	*check_specialcases(long long int n)
 	return (NULL);
 }
 
-static int	num_digits(long long int n)
+static int	num_digits(long long n)
 {
 	int	i;
 
@@ -44,7 +44,7 @@ static int	num_digits(long long int n)
 	return (i);
 }
 
-char		*ft_itoalonglong(long long int n)
+char		*ft_itoalonglong(long long n)
 {
 	char	*res;
 	int		i;

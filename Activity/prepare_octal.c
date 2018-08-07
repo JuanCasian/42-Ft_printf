@@ -6,15 +6,15 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 15:19:15 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/06 14:24:41 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 17:39:45 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	apply_hash(t_info *info, int flag)
+static void	apply_hash(t_info *info, int flag, int iszero)
 {
-	if (info->flags[Fhash] == 1)
+	if (info->flags[Fhash] == 1 && iszero != 1)
 	{
 		if (((info->flags[Fzero] != 1 || info->flags[Fminus] == 1) &&
 				flag == 0) || (info->flags[Fzero] == 1 && info->preci > 0
@@ -23,7 +23,7 @@ static void	apply_hash(t_info *info, int flag)
 	}
 }
 
-static void	apply_width(t_info *info)
+static void	apply_width(t_info *info, int iszero)
 {
 	int len;
 
@@ -49,14 +49,18 @@ static void	apply_width(t_info *info)
 			len++;
 		}
 	}
-	apply_hash(info, 1);
+	apply_hash(info, 1, iszero);
 }
 
 static void	apply_precision(t_info *info)
 {
 	int len;
+	int iszero;
 
-	apply_hash(info, 0);
+	iszero = 0;
+	if (info->res[0] == '0' && !(info->res[1]))
+		iszero = 1;
+	apply_hash(info, 0, iszero);
 	if (info->preci > (len = ft_strlen(info->res)))
 	{
 		while (info->preci > len)
@@ -65,6 +69,12 @@ static void	apply_precision(t_info *info)
 			len++;
 		}
 	}
+	if (info->preci == 0 && iszero == 1)
+	{
+		free(info->res);
+		info->res = ft_strdup("");
+	}
+	apply_width(info, iszero);
 }
 
 void		prepare_octal(t_info *info)
@@ -91,7 +101,6 @@ void		prepare_octal(t_info *info)
 		info->res = ft_utoabaselonglong((unsigned long long int)va_arg(
 					info->args[0], unsigned int), 8);
 	apply_precision(info);
-	apply_width(info);
 	if (info->speci == 'O')
 		ft_strtoupper(&info->res);
 }

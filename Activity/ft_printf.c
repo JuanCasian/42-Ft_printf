@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 18:47:22 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 16:02:38 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 16:07:45 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	check_and_print(t_info *info)
 	if (info->speci)
 	{
 		prepare_bytype(info);
-		if (info->res)
+		if (info->res && info->speci)
 			print_res(info);
 		else if (info->wres)
 			print_wres(info);

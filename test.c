@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 18:41:50 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/05 17:26:16 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 17:36:35 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int		main(void)
 	wchar_t *s;
 	char c;
 
+	void *p = NULL;
+
 	c = 'a';
 
 	s = ft_wstrdup(L"HELLOOO");
@@ -29,10 +31,10 @@ int		main(void)
 	r = 9;
 
 	setlocale(LC_ALL, "");
-	j  = ft_printf("YOURS: %10.5lc\n", s[3]);
+	j  = ft_printf("YOURS: %#o\n", 0);
 	printf("YOURS: %i\n", j);
 	setlocale(LC_ALL, "");
-	k  = printf("REAL#: %10.5lc\n", s[3]);
+	k  = printf("REAL#: %#o\n", 0);
 	printf("REAL#: %i\n", k);
 	return (0);
 }

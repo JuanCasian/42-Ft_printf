@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 13:26:01 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/06 14:13:56 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 17:34:50 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void		prepare_address(t_info *info)
 	void	*arg;
 
 	arg = va_arg(info->args[0], void*);
-	if (!arg)
+	if (arg == NULL)
 	{
-		if (!(info->res = ft_strdup("(null)")))
+		if (!(info->res = ft_strdup("0")))
 			print_error();
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 16:02:46 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/06 14:27:18 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 17:25:01 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,18 +87,18 @@ void		prepare_signed(t_info *info)
 	int		isneg;
 
 	if (info->lens[Ll] == 1 || info->speci == 'D' || info->speci == 'I')
-		info->res = ft_itoalonglong((long long int)va_arg(info->args[0],
+		info->res = ft_itoalonglong((long long)va_arg(info->args[0],
 					long int));
 	else if (info->lens[Lll] == 1)
-		info->res = ft_itoalonglong(va_arg(info->args[0], long long int));
+		info->res = ft_itoalonglong(va_arg(info->args[0], long long));
 	else if (info->lens[Lj] == 1)
-		info->res = ft_itoalonglong((long long int)va_arg(info->args[0],
+		info->res = ft_itoalonglong((long long)va_arg(info->args[0],
 					intmax_t));
 	else if (info->lens[Lz] == 1)
 		info->res = ft_utoabaselonglong((unsigned long long int)va_arg(
 					info->args[0], size_t), 10);
 	else
-		info->res = ft_itoalonglong((long long int)va_arg(info->args[0], int));
+		info->res = ft_itoalonglong((long long)va_arg(info->args[0], int));
 	isneg = negative_num(info);
 	apply_precision(info);
 	if (info->flags[Fzero] != 1 || info->flags[Fminus] == 1 || info->preci > 0)

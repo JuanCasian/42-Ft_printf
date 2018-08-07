@@ -6,7 +6,7 @@
 /*   By: jcasian <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 14:15:50 by jcasian           #+#    #+#             */
-/*   Updated: 2018/08/06 14:18:51 by jcasian          ###   ########.fr       */
+/*   Updated: 2018/08/06 16:03:48 by jcasian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,36 @@ static void	apply_width(t_info *info)
 		apply_widthwchar(info);
 }
 
+static void	print_specialcase(t_info *info)
+{
+	int	i;
+
+	i = 0;
+	while (info->res[i])
+	{
+		ft_putchar(info->res[i]);
+		i++;
+	}
+	info->count += i;
+	ft_putchar('\0');
+	info->count++;
+	info->speci = '\0';
+}
+
 void		prepare_char(t_info *info)
 {
+	char	res;
+	int		flag;
+
+	flag = 0;
 	if (info->speci == 'c' && info->lens[Ll] != 1)
 	{
 		if (!(info->res = ft_strnew(1)))
 			print_error();
-		info->res[0] = va_arg(info->args[0], int);
+		res = va_arg(info->args[0], int);
+		if (res == 0)
+			flag = 1;
+		info->res[0] = res;
 	}
 	else
 	{
@@ -79,6 +102,10 @@ void		prepare_char(t_info *info)
 			print_error();
 		info->wres[0] = va_arg(info->args[0], wchar_t);
 	}
+	if (flag == 1)
+		info->width--;
 	if (info->width > 0)
 		apply_width(info);
+	if (flag == 1)
+		print_specialcase(info);
 }

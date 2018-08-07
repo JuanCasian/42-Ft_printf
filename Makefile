@@ -6,7 +6,7 @@
 #    By: jcasian <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/04 18:30:42 by jcasian           #+#    #+#              #
-#    Updated: 2018/08/05 16:36:37 by jcasian          ###   ########.fr        #
+#    Updated: 2018/08/06 14:51:27 by jcasian          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ all: $(NAME)
 	gcc -c -Wall -Werror -Wextra -I$(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJECTS) $(LIBFTOBJECTS)
-	mkdir libs
 	ar rc $(LIBSDIR)/$(NAME) $(OBJECTS) $(LIBFTOBJECTS)
 	ranlib $(LIBSDIR)/$(NAME)
 
