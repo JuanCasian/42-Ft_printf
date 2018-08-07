@@ -6,7 +6,7 @@
 #    By: jcasian <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/04 18:30:42 by jcasian           #+#    #+#              #
-#    Updated: 2018/08/06 14:51:27 by jcasian          ###   ########.fr        #
+#    Updated: 2018/08/06 18:30:13 by jcasian          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,30 +41,38 @@ LIBFTOBJECTS = $(patsubst %.c, %.o, $(LIBFTSRCS))
 all: $(NAME)
 
 %.o: %.c
-	gcc -c -Wall -Werror -Wextra -I$(INCLUDES) -c $< -o $@
+	@gcc -c -Wall -Werror -Wextra -I$(INCLUDES) -c $< -o $@
 
-$(NAME): $(OBJECTS) $(LIBFTOBJECTS)
-	ar rc $(LIBSDIR)/$(NAME) $(OBJECTS) $(LIBFTOBJECTS)
-	ranlib $(LIBSDIR)/$(NAME)
+printmsg:
+	@echo "Preparing library... Please wait"
+
+$(NAME): printmsg $(OBJECTS) $(LIBFTOBJECTS)
+	@ar rc $(LIBSDIR)/$(NAME) $(OBJECTS) $(LIBFTOBJECTS)
+	@ranlib $(LIBSDIR)/$(NAME)
+	@echo "Library is ready!"
 
 clean:
-	rm -f $(OBJECTS) $(LIBFTOBJECTS)
+	@echo "Cleanning objects..."
+	@rm -f $(OBJECTS) $(LIBFTOBJECTS)
 
 fclean: clean
-	rm -f $(LIBSDIR)/$(NAME)
+	@echo "Deleting library..."
+	@rm -f $(LIBSDIR)/$(NAME)
 
 re: fclean all
 
 test: re
-	gcc test.c -L$(LIBSDIR) -lftprintf -I$(INCLUDES) -o test
+	@echo "Creating test..."
+	@gcc test.c -L$(LIBSDIR) -lftprintf -I$(INCLUDES) -o test
 
 testclean: fclean
-	rm test
+	@echo "Deleting test..."
+	@rm test
 
 retest: testclean test
 
 debugclean:
-	rm -rf debug*
+	@rm -rf debug*
 
 debug: debugclean
-	gcc -g test.c $(SRCS) $(LIBFTSRCS) -I$(INCLUDES) -o debug
+	@gcc -g test.c $(SRCS) $(LIBFTSRCS) -I$(INCLUDES) -o debug
